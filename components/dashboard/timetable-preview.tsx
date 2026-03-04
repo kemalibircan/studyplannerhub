@@ -14,7 +14,7 @@ export default function TimetablePreview() {
 
   useEffect(() => {
     const savedClasses = loadFromStorage<TimetableClass[]>("timetable-classes", []);
-    const savedConfig = loadFromStorage<TimetableConfig>("timetable-config", null);
+    const savedConfig = loadFromStorage<TimetableConfig | null>("timetable-config", null);
     setClasses(savedClasses);
     setConfig(savedConfig);
   }, []);

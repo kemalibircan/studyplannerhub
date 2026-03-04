@@ -33,7 +33,7 @@ function ClassBlock({
 
   return (
     <div
-      ref={drag}
+      ref={drag as any}
       onDoubleClick={onDoubleClick}
       className={`w-full rounded-md p-1.5 text-xs cursor-move transition-all duration-200 hover:opacity-90 hover:scale-[1.02] hover:shadow-md select-none ${
         isDragging ? "opacity-50 scale-95 z-50" : "z-10"
@@ -111,7 +111,7 @@ function TimeSlotCell({
 
   return (
     <td
-      ref={drop}
+      ref={drop as any}
       onDoubleClick={handleCellDoubleClick}
       className={`border-r border-b border-border relative min-h-[80px] p-1 transition-colors duration-200 cursor-pointer ${
         isOver ? "bg-primary/10 border-primary/50" : "bg-background"

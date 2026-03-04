@@ -13,7 +13,7 @@ export default function StudyPlanPreview() {
   const [state, setState] = useState<StudyPlanState | null>(null);
 
   useEffect(() => {
-    const saved = loadFromStorage<StudyPlanState>("study-plan-state", null);
+    const saved = loadFromStorage<StudyPlanState | null>("study-plan-state", null);
     setState(saved);
   }, []);
 
