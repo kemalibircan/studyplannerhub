@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Exam } from "@/types/countdown";
 import { saveToStorage, loadFromStorage } from "@/lib/storage";
 import { generateId } from "@/lib/utils";
@@ -42,26 +42,7 @@ export default function CountdownPage() {
     setNotificationsEnabled(savedNotifications);
   }, []);
 
-  useEffect(() => {
-    if (notificationsEnabled && "Notification" in window) {
-      Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          scheduleNotifications();
-        }
-      });
-    }
-  }, [notificationsEnabled, exams]);
-
-  // Update countdown every minute
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Force re-render to update countdown
-      setExams([...exams]);
-    }, 60000);
-    return () => clearInterval(interval);
-  }, [exams]);
-
-  function scheduleNotifications() {
+  const scheduleNotifications = useCallback(() => {
     exams.forEach((exam) => {
       const examDate = new Date(exam.date);
       if (exam.time) {
@@ -84,7 +65,26 @@ export default function CountdownPage() {
         }
       }
     });
-  }
+  }, [exams]);
+
+  useEffect(() => {
+    if (notificationsEnabled && "Notification" in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          scheduleNotifications();
+        }
+      });
+    }
+  }, [notificationsEnabled, scheduleNotifications]);
+
+  // Update countdown every minute
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Force re-render to update countdown
+      setExams([...exams]);
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [exams]);
 
   function handleAddExam() {
     if (!formData.name || !formData.date) {

@@ -19,7 +19,7 @@ export default function ContactPage() {
               <CardHeader>
                 <CardTitle>Get in Touch</CardTitle>
                 <CardDescription>
-                  Have questions, feedback, or need help? We'd love to hear from you.
+                  Have questions, feedback, or need help? We&apos;d love to hear from you.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -45,14 +45,14 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Feedback</h3>
                     <p className="text-muted-foreground">
-                      We're always looking to improve. If you have suggestions for new features or improvements,
+                      We&apos;re always looking to improve. If you have suggestions for new features or improvements,
                       please reach out to us via email.
                     </p>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">Technical Support</h3>
                     <p className="text-muted-foreground">
-                      If you're experiencing technical issues, please check:
+                      If you&apos;re experiencing technical issues, please check:
                     </p>
                     <ul className="list-disc list-inside text-muted-foreground mt-2 space-y-1">
                       <li>Your browser is up to date</li>

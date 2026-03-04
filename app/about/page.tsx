@@ -33,7 +33,7 @@ export default function AboutPage() {
               </ul>
               <h2>Privacy & Data</h2>
               <p>
-                All data is stored locally in your browser. We don't collect, store, or share any personal information.
+                All data is stored locally in your browser. We don&apos;t collect, store, or share any personal information.
                 Your timetables, exams, and study plans remain private and secure on your device.
               </p>
               <h2>Contact</h2>

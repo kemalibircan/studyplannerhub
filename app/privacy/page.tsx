@@ -38,8 +38,8 @@ export default function PrivacyPage() {
               </p>
               <h2>Your Rights</h2>
               <p>
-                Since we don't collect any data, there's no data to access, modify, or delete. You can clear your
-                browser's localStorage at any time to remove all your data.
+                Since we don&apos;t collect any data, there&apos;s no data to access, modify, or delete. You can clear your
+                browser&apos;s localStorage at any time to remove all your data.
               </p>
               <h2>Changes to This Policy</h2>
               <p>

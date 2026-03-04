@@ -27,7 +27,7 @@ export default function TermsPage() {
               </p>
               <h2>No Warranty</h2>
               <p>
-                StudyPlannerHub is provided "as is" without any warranties, expressed or implied. We do not guarantee
+                StudyPlannerHub is provided &quot;as is&quot; without any warranties, expressed or implied. We do not guarantee
                 that the service will be uninterrupted, error-free, or meet your specific requirements.
               </p>
               <h2>Limitation of Liability</h2>

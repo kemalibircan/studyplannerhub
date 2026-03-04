@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TimetableClass, TimetableConfig } from "@/types/timetable";
@@ -65,12 +65,7 @@ export default function TimetablePage() {
     }
   }, []);
 
-  // Only check conflicts when classes change, don't save (saving is done in functions)
-  useEffect(() => {
-    checkConflicts();
-  }, [classes]);
-
-  function checkConflicts() {
+  const checkConflicts = useCallback(() => {
     const conflictIds: string[] = [];
     for (let i = 0; i < classes.length; i++) {
       for (let j = i + 1; j < classes.length; j++) {
@@ -85,7 +80,12 @@ export default function TimetablePage() {
       }
     }
     setConflicts(conflictIds);
-  }
+  }, [classes]);
+
+  // Only check conflicts when classes change, don't save (saving is done in functions)
+  useEffect(() => {
+    checkConflicts();
+  }, [checkConflicts]);
 
   function handleAddClass() {
     if (!formData.name || !formData.startTime || !formData.endTime) {
@@ -447,7 +447,7 @@ export default function TimetablePage() {
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-0.5">•</span>
-                        <span>Click <strong>"Add Class"</strong> button to create a new class</span>
+                        <span>Click <strong>&quot;Add Class&quot;</strong> button to create a new class</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-0.5">•</span>
@@ -499,7 +499,7 @@ export default function TimetablePage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-0.5">•</span>
-                        <span>Or click <strong>"Edit"</strong> button in the class card below</span>
+                        <span>Or click <strong>&quot;Edit&quot;</strong> button in the class card below</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-0.5">•</span>
