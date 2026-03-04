@@ -1,0 +1,41 @@
+# Robots.txt for StudyPlannerHub.com
+# https://studyplannerhub.com/robots.txt
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /
+Allow: /dashboard
+Allow: /timetable
+Allow: /countdown
+Allow: /study-plan
+Allow: /blog
+Allow: /about
+Allow: /contact
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://studyplannerhub.com/sitemap.xml
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
